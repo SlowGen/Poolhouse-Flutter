@@ -24,14 +24,14 @@ class SplashScreen extends StatelessWidget {
         backgroundColor: kPrimaryColorPeach,
         title: Text(
           'POOLHOUSE',
-          style: kTextStyleWhite,
+          style: kTextStyleAppBar,
         ),
       ),
       body: Container(
         child: Center(
           child: Hero(
             tag: 'splash',
-            child: Image.asset('assets/splash.png'),
+            child: Image.asset('assets/phSplash.png'),
           ),
         ),
       ),

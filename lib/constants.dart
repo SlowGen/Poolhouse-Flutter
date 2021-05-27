@@ -6,8 +6,28 @@ const kAccentColorGreen = Color(0xFF5f9555);
 const kAccentColorPurple = Color(0xFF5271ff);
 const kAccentColorBlue = Color(0xFF004aad);
 
+const TextStyle kTextStyleAppBar = TextStyle(
+  color: Colors.white,
+  fontFamily: 'Limelight',
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+  letterSpacing: 5.0,
+  shadows: [
+    Shadow(
+      blurRadius: 5.0,
+      color: kAccentColorGreen,
+    ),
+  ],
+);
+
 const TextStyle kTextStyleWhite = TextStyle(
   color: Colors.white,
   fontFamily: 'Limelight',
   fontSize: 25.0,
+);
+
+const TextStyle kTextStyleServerTile = TextStyle(
+  color: kAccentColorGreen,
+  fontFamily: 'SpaceMono',
+  fontSize: 15.0,
 );
