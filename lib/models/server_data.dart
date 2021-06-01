@@ -6,7 +6,11 @@ import './server.dart';
 
 class ServerData extends ChangeNotifier {
   List<Server> _servers = [
-    Server(),
+    Server(
+      name: 'Awesome Sauce',
+      points: 1.0,
+      tips: 25.0,
+    ),
   ];
 
   UnmodifiableListView<Server> get servers {
@@ -16,6 +20,10 @@ class ServerData extends ChangeNotifier {
   void addServer(String newName, double newPoints, double newTips) {
     _servers.add(Server(name: newName, points: newPoints, tips: newTips));
     notifyListeners();
+  }
+
+  int get serverCount {
+    return _servers.length;
   }
 
   void editServer(

@@ -25,6 +25,7 @@ class ServerList extends StatelessWidget {
               },
             );
           },
+          itemCount: serverData.serverCount,
         );
       },
     );

@@ -26,8 +26,20 @@ const TextStyle kTextStyleWhite = TextStyle(
   fontSize: 25.0,
 );
 
-const TextStyle kTextStyleServerTile = TextStyle(
+const TextStyle kTextStyleServerTileName = TextStyle(
   color: kAccentColorGreen,
+  fontFamily: 'SpaceMono',
+  fontSize: 25.0,
+);
+
+const TextStyle kTextStyleServerTileNumbers = TextStyle(
+  color: kAccentColorOrange,
+  fontFamily: 'SpaceMono',
+  fontSize: 20.0,
+);
+
+const TextStyle kTextStyleServerTileDelete = TextStyle(
+  color: kAccentColorPurple,
   fontFamily: 'SpaceMono',
   fontSize: 15.0,
 );

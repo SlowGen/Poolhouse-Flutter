@@ -16,17 +16,46 @@ class ServerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        '${this.server.name}',
-        style: kTextStyleServerTile,
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
-      subtitle: Text(
-        'Tap and hold to delete',
-        style: kTextStyleServerTile.copyWith(fontSize: 5.0),
+      shadowColor: kAccentColorPurple,
+      elevation: 10.0,
+      child: ListTile(
+        // tileColor: Colors.white,
+        // selectedTileColor: Colors.white,
+        leading: IconButton(onPressed: () => {}, icon: Icon(Icons.edit)),
+        title: Column(
+          children: [
+            Text(
+              '${this.server.name}',
+              style: kTextStyleServerTileName,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  '${this.server.points}',
+                  style: kTextStyleServerTileNumbers,
+                ),
+                Text(
+                  '\$${this.server.tips}',
+                  style: kTextStyleServerTileNumbers,
+                ),
+              ],
+            ),
+          ],
+        ),
+        subtitle: Center(
+          child: Text(
+            'Tap and hold to delete',
+            style: kTextStyleServerTileDelete,
+          ),
+        ),
+        onTap: () => edit,
+        onLongPress: () => delete,
       ),
-      onTap: () => edit,
-      onLongPress: () => delete,
     );
   }
 }

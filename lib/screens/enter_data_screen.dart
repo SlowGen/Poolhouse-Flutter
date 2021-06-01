@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 import '../screens/add_server_screen.dart';
+import '../widgets/server_list.dart';
 
 //TODO 2: Write algorithm
 //TODO 3: Add Calculate Button
@@ -25,6 +26,7 @@ class _DataEntryState extends State<DataEntry> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
             context: context,
@@ -66,6 +68,21 @@ class _DataEntryState extends State<DataEntry> {
                 'Instructions',
                 style: kTextStyleWhite,
               ),
+            ),
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20.0),
+                  topRight: Radius.circular(20.0),
+                ),
+              ),
+              child: ServerList(),
             ),
           ),
         ],

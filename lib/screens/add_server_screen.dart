@@ -13,74 +13,100 @@ class AddServerScreen extends StatelessWidget {
     String tips = '0.0';
 
     return Container(
-      color: kAccentColorPurple,
+      decoration: BoxDecoration(
+        color: kAccentColorPurple,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15.0),
+          topRight: Radius.circular(15.0),
+        ),
+      ),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15.0),
-            topRight: Radius.circular(15.0),
+            topLeft: Radius.circular(50.0),
+            topRight: Radius.circular(50.0),
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(
-              child: Text(
-                'Server Name',
-                style: kTextStyleServerTile,
-              ),
+            SizedBox(
+              height: 25.0,
             ),
-            TextField(
+            TextFormField(
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (value) => name = value,
-              selectionWidthStyle: BoxWidthStyle.tight,
               decoration: InputDecoration(
+                isDense: true,
                 focusColor: Colors.lightGreenAccent,
+                icon: Icon(Icons.person),
+                hintText: 'Name',
+                hintStyle: kTextStyleServerTileName,
               ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.tight(Size(100.0, 45.0)),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      // maxLength: 8,
+                      autofocus: true,
+                      textAlign: TextAlign.center,
+                      onChanged: (value) => points = value,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        focusColor: Colors.lightGreenAccent,
+                        icon: Icon(Icons.list),
+                        hintText: 'Split',
+                        hintStyle: kTextStyleServerTileName,
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints.tight(Size(100.0, 45.0)),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      autofocus: true,
+                      textAlign: TextAlign.center,
+                      onChanged: (value) => tips = value,
+                      decoration: InputDecoration(
+                        isDense: true,
+                        focusColor: Colors.lightGreenAccent,
+                        icon: Icon(Icons.money),
+                        hintText: 'Tips',
+                        hintStyle: kTextStyleServerTileName,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             Center(
-              child: Text(
-                'Split Metric',
-                style: kTextStyleServerTile,
-              ),
-            ),
-            TextField(
-              autofocus: true,
-              textAlign: TextAlign.center,
-              onChanged: (value) => points = value,
-              selectionWidthStyle: BoxWidthStyle.tight,
-              decoration: InputDecoration(
-                focusColor: Colors.lightGreenAccent,
-              ),
-            ),
-            Center(
-              child: Text(
-                'Split Metric',
-                style: kTextStyleServerTile,
-              ),
-            ),
-            TextField(
-              autofocus: true,
-              textAlign: TextAlign.center,
-              onChanged: (value) => points = value,
-              selectionWidthStyle: BoxWidthStyle.tight,
-              decoration: InputDecoration(
-                focusColor: Colors.lightGreenAccent,
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                Provider.of<ServerData>(context, listen: false).addServer(
-                  name,
-                  double.parse(points),
-                  double.parse(tips),
-                );
-              },
-              child: Text(
-                'Add Server',
-                style: kTextStyleServerTile,
+              child: TextButton(
+                onPressed: () {
+                  print('button pushed');
+                  Provider.of<ServerData>(context, listen: false).addServer(
+                    name,
+                    double.parse(points),
+                    double.parse(tips),
+                  );
+                  Navigator.pop(context);
+                },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all(kAccentColorOrange),
+                ),
+                child: Text(
+                  'Add Server',
+                  style: kTextStyleServerTileName,
+                ),
               ),
             ),
           ],
