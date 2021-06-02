@@ -23,8 +23,6 @@ class ServerTile extends StatelessWidget {
       shadowColor: kAccentColorPurple,
       elevation: 10.0,
       child: ListTile(
-        // tileColor: Colors.white,
-        // selectedTileColor: Colors.white,
         leading: IconButton(onPressed: () => {}, icon: Icon(Icons.edit)),
         title: Column(
           children: [

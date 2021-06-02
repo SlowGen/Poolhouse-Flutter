@@ -8,9 +8,9 @@ import '../constants.dart';
 class AddServerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String name = 'Server';
-    String points = '1.0';
-    String tips = '0.0';
+    String name = "Server";
+    String points = "1.0";
+    String tips = "0.0";
 
     return Container(
       decoration: BoxDecoration(
@@ -54,8 +54,7 @@ class AddServerScreen extends StatelessWidget {
                     constraints: BoxConstraints.tight(Size(100.0, 45.0)),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
-                      // maxLength: 8,
-                      autofocus: true,
+                      // autofocus: true,
                       textAlign: TextAlign.center,
                       onChanged: (value) => points = value,
                       decoration: InputDecoration(
@@ -73,7 +72,7 @@ class AddServerScreen extends StatelessWidget {
                     constraints: BoxConstraints.tight(Size(100.0, 45.0)),
                     child: TextFormField(
                       keyboardType: TextInputType.number,
-                      autofocus: true,
+                      // autofocus: true,
                       textAlign: TextAlign.center,
                       onChanged: (value) => tips = value,
                       decoration: InputDecoration(
@@ -91,7 +90,7 @@ class AddServerScreen extends StatelessWidget {
             Center(
               child: TextButton(
                 onPressed: () {
-                  print('button pushed');
+                  print(name);
                   Provider.of<ServerData>(context, listen: false).addServer(
                     name,
                     double.parse(points),
