@@ -3,14 +3,33 @@ import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import '../models/server_data.dart';
+import '../widgets/add_server_form.dart';
 import '../constants.dart';
 
-class AddServerScreen extends StatelessWidget {
+class AddServerScreen extends StatefulWidget {
+  @override
+  _AddServerScreenState createState() => _AddServerScreenState();
+}
+
+class _AddServerScreenState extends State<AddServerScreen> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    String name = "Server";
-    String points = "1.0";
-    String tips = "0.0";
+    String? name = "Server";
+    String? points = "1.0";
+    String? tips = "0.0";
+
+    void _submit() {
+      print(name);
+      if (_formKey.currentState!.validate()) _formKey.currentState!.save();
+      Provider.of<ServerData>(context, listen: false).addServer(
+        name.toString(),
+        double.parse(points.toString()),
+        double.parse(tips.toString()),
+      );
+      Navigator.pop(context);
+    }
 
     return Container(
       decoration: BoxDecoration(
@@ -28,87 +47,72 @@ class AddServerScreen extends StatelessWidget {
             topRight: Radius.circular(50.0),
           ),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 25.0,
-            ),
-            TextFormField(
-              autofocus: true,
-              textAlign: TextAlign.center,
-              onChanged: (value) => name = value,
-              decoration: InputDecoration(
-                isDense: true,
-                focusColor: Colors.lightGreenAccent,
-                icon: Icon(Icons.person),
+        child: Form(
+          key: _formKey,
+          onChanged: () {
+            Form.of(primaryFocus!.context!)!.save();
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 25.0,
+              ),
+              AddServerForm(
+                onSaved: (value) => name = value,
                 hintText: 'Name',
-                hintStyle: kTextStyleServerTileName,
+                icon: Icon(Icons.person),
+                validator: (String? value) =>
+                    value == null ? "Name cannot be empty" : null,
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(100.0, 45.0)),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      // autofocus: true,
-                      textAlign: TextAlign.center,
-                      onChanged: (value) => points = value,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        focusColor: Colors.lightGreenAccent,
-                        icon: Icon(Icons.list),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(100.0, 45.0)),
+                      child: AddServerForm(
+                        onSaved: (value) => points = value,
                         hintText: 'Split',
-                        hintStyle: kTextStyleServerTileName,
+                        icon: Icon(Icons.text_fields),
+                        isNum: true,
+                        validator: (String? value) =>
+                            value == null || value == '0'
+                                ? "Metric can't be zero"
+                                : null,
                       ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints.tight(Size(100.0, 45.0)),
-                    child: TextFormField(
-                      keyboardType: TextInputType.number,
-                      // autofocus: true,
-                      textAlign: TextAlign.center,
-                      onChanged: (value) => tips = value,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        focusColor: Colors.lightGreenAccent,
-                        icon: Icon(Icons.money),
+                  Expanded(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(100.0, 45.0)),
+                      child: AddServerForm(
+                        onSaved: (value) => tips = value,
                         hintText: 'Tips',
-                        hintStyle: kTextStyleServerTileName,
+                        icon: Icon(Icons.money),
+                        isNum: true,
+                        validator: (String? value) =>
+                            value == null ? "If no tips, enter 0" : null,
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Center(
-              child: TextButton(
-                onPressed: () {
-                  print(name);
-                  Provider.of<ServerData>(context, listen: false).addServer(
-                    name,
-                    double.parse(points),
-                    double.parse(tips),
-                  );
-                  Navigator.pop(context);
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(kAccentColorOrange),
-                ),
-                child: Text(
-                  'Add Server',
-                  style: kTextStyleServerTileName,
+                ],
+              ),
+              Center(
+                child: TextButton(
+                  onPressed: _submit,
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(kAccentColorOrange),
+                  ),
+                  child: Text(
+                    'Add Server',
+                    style: kTextStyleServerTileName,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
