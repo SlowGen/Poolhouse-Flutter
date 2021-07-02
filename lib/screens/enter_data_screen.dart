@@ -6,7 +6,6 @@ import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
 
 //TODO 2: Write algorithm
-//TODO 3: Add Calculate Button
 //TODO 4: Busser tipout
 
 class DataEntry extends StatefulWidget {
@@ -96,6 +95,15 @@ class _DataEntryState extends State<DataEntry> {
               child: showInstructions ? Instructions() : ServerList(),
             ),
           ),
+          Container(
+            color: kAccentColorPurple,
+            child: TextButton(
+                onPressed: () => {},
+                child: Text(
+                  'Calculate',
+                  style: kTextStyleAppBar,
+                )),
+          )
         ],
       ),
     );
