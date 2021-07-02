@@ -77,9 +77,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                         icon: Icon(Icons.text_fields),
                         isNum: true,
                         validator: (String? value) =>
-                            value == null || value == '0'
-                                ? "Metric can't be zero"
-                                : null,
+                            value == null ? "If no points, enter 0" : null,
                       ),
                     ),
                   ),

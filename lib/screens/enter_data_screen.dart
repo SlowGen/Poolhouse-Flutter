@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../constants.dart';
 
 import '../screens/add_server_screen.dart';
+import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
+import '../models/server_data.dart';
 
 //TODO 2: Write algorithm
 //TODO 3: Add Calculate Button
@@ -16,8 +19,13 @@ class DataEntry extends StatefulWidget {
 }
 
 class _DataEntryState extends State<DataEntry> {
+  bool showInstructions = true;
+
   @override
   Widget build(BuildContext context) {
+    int serverCount =
+        Provider.of<ServerData>(context, listen: false).serverCount;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -60,12 +68,17 @@ class _DataEntryState extends State<DataEntry> {
           ),
           Center(
             child: TextButton(
-              onPressed: () => {},
+              onPressed: () {
+                setState(() {
+                  showInstructions = !showInstructions;
+                });
+                print(showInstructions);
+              },
               style: ButtonStyle(
                 elevation: MaterialStateProperty.all(15.0),
               ),
               child: Text(
-                'Instructions',
+                showInstructions ? 'Show List' : 'Show Instructions',
                 style: kTextStyleWhite,
               ),
             ),
@@ -82,7 +95,7 @@ class _DataEntryState extends State<DataEntry> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: ServerList(),
+              child: showInstructions ? Instructions() : ServerList(),
             ),
           ),
         ],

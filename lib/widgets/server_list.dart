@@ -5,10 +5,6 @@ import './server_tile.dart';
 import '../models/server_data.dart';
 
 class ServerList extends StatelessWidget {
-  void edit(server) {}
-
-  //TODO 1: write edit server function
-
   @override
   Widget build(BuildContext context) {
     return Consumer<ServerData>(
@@ -19,7 +15,6 @@ class ServerList extends StatelessWidget {
 
             return ServerTile(
               server: server,
-              edit: edit,
               delete: () {
                 serverData.deleteServer(server);
               },

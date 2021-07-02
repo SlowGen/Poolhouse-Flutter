@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../constants.dart';
 
 import '../models/server.dart';
+import '../models/server_data.dart';
 
 class ServerTile extends StatelessWidget {
   final Server server;
-  final Function edit;
   final Function delete;
 
   ServerTile({
     required this.server,
-    required this.edit,
     required this.delete,
   });
 
@@ -23,7 +23,12 @@ class ServerTile extends StatelessWidget {
       shadowColor: kAccentColorPurple,
       elevation: 10.0,
       child: ListTile(
-        leading: IconButton(onPressed: () => {}, icon: Icon(Icons.edit)),
+        leading: IconButton(
+            onPressed: () => {
+                  Provider.of<ServerData>(context, listen: false)
+                      .deleteServer(server)
+                },
+            icon: Icon(Icons.clear)),
         title: Column(
           children: [
             Text(
@@ -45,14 +50,6 @@ class ServerTile extends StatelessWidget {
             ),
           ],
         ),
-        subtitle: Center(
-          child: Text(
-            'Tap and hold to delete',
-            style: kTextStyleServerTileDelete,
-          ),
-        ),
-        onTap: () => edit,
-        onLongPress: () => delete,
       ),
     );
   }
