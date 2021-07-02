@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 import '../screens/add_server_screen.dart';
+import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
 
@@ -27,17 +28,46 @@ class _DataEntryState extends State<DataEntry> {
           style: kTextStyleAppBar,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            showInstructions = false;
-          });
-          showModalBottomSheet(
-            context: context,
-            builder: (context) => AddServerScreen(),
-          );
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            right: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              heroTag: 'server',
+              child: Icon(Icons.add),
+              onPressed: () {
+                setState(() {
+                  showInstructions = false;
+                });
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => AddServerScreen(),
+                );
+              },
+            ),
+          ),
+          Positioned(
+            left: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              heroTag: 'tipout',
+              backgroundColor: kAccentColorOrange,
+              child: Icon(Icons.remove),
+              onPressed: () {
+                setState(() {
+                  showInstructions = false;
+                });
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => AddTipoutScreen(),
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
