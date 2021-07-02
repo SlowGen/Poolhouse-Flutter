@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../constants.dart';
 
 import '../screens/add_server_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
-import '../models/server_data.dart';
 
 //TODO 2: Write algorithm
 //TODO 3: Add Calculate Button
@@ -23,9 +21,6 @@ class _DataEntryState extends State<DataEntry> {
 
   @override
   Widget build(BuildContext context) {
-    int serverCount =
-        Provider.of<ServerData>(context, listen: false).serverCount;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -36,6 +31,9 @@ class _DataEntryState extends State<DataEntry> {
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {
+          setState(() {
+            showInstructions = false;
+          });
           showModalBottomSheet(
             context: context,
             builder: (context) => AddServerScreen(),

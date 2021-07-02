@@ -25,8 +25,8 @@ class _AddServerScreenState extends State<AddServerScreen> {
       if (_formKey.currentState!.validate()) _formKey.currentState!.save();
       Provider.of<ServerData>(context, listen: false).addServer(
         name.toString(),
-        double.parse(points.toString()),
-        double.parse(tips.toString()),
+        points.toString(),
+        tips.toString(),
       );
       Navigator.pop(context);
     }

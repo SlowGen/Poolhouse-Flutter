@@ -19,7 +19,7 @@ class AddServerForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      // textInputAction: TextInputAction.next,
+      style: kTextStyleServerTileName,
       autofocus: isNum ? false : true,
       textAlign: TextAlign.center,
       onSaved: onSaved,
