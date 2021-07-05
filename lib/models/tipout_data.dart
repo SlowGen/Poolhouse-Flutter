@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 
 class TipoutData extends ChangeNotifier {
   int tipout = 0;
+  double allocation = 0.0;
 
   void resetTipout() {
     tipout = 0;
@@ -13,6 +14,11 @@ class TipoutData extends ChangeNotifier {
 
   void setTipout(int newTipout) {
     tipout = newTipout;
+    notifyListeners();
+  }
+
+  void setAllocation(double newAllocation) {
+    allocation = newAllocation;
     notifyListeners();
   }
 }
