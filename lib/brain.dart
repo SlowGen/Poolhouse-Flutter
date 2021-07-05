@@ -15,7 +15,7 @@ class Brain {
       totalPoints += double.parse(server.points);
     }
     totalTips -= tipout;
-    _rate = totalTips / totalPoints;
+    totalPoints != 0 ? _rate = totalTips / totalPoints : _rate = 0.0;
   }
 
   void mapAllocation() {
