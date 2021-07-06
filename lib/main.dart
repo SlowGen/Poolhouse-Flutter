@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import './screens/splash_screen.dart';
 import './screens/enter_data_screen.dart';
+import './screens/results_screen.dart';
 import './models/server_data.dart';
 import './models/tipout_data.dart';
 
@@ -36,6 +37,7 @@ class PoolHouseNoAds extends StatelessWidget {
         routes: {
           SplashScreen.id: (context) => SplashScreen(),
           DataEntry.id: (context) => DataEntry(),
+          ResultsScreen.id: (context) => ResultsScreen(),
         },
       ),
     );

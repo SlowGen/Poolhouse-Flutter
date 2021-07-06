@@ -6,8 +6,7 @@ import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
 
-//TODO 2: Write algorithm
-//TODO 4: Busser tipout
+// import '../brain.dart';
 
 class DataEntry extends StatefulWidget {
   static const String id = 'data';
@@ -128,7 +127,10 @@ class _DataEntryState extends State<DataEntry> {
           Container(
             color: kAccentColorPurple,
             child: TextButton(
-                onPressed: () => {},
+                onPressed: () => {
+                      //TODO add brain function
+                      //TODO navigate to results
+                    },
                 child: Text(
                   'Calculate',
                   style: kTextStyleAppBar,
