@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:poolhouse/screens/results_screen.dart';
 import '../constants.dart';
-
 import '../screens/add_server_screen.dart';
 import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
-
-// import '../brain.dart';
 
 class DataEntry extends StatefulWidget {
   static const String id = 'data';
@@ -127,10 +125,7 @@ class _DataEntryState extends State<DataEntry> {
           Container(
             color: kAccentColorPurple,
             child: TextButton(
-                onPressed: () => {
-                      //TODO add brain function
-                      //TODO navigate to results
-                    },
+                onPressed: () => Navigator.pushNamed(context, ResultsScreen.id),
                 child: Text(
                   'Calculate',
                   style: kTextStyleAppBar,

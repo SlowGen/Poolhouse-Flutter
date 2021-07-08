@@ -12,8 +12,6 @@ class ResultsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String allocationConverted =
-        int.parse(server.allocation).toStringAsFixed(2);
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -24,11 +22,11 @@ class ResultsTile extends StatelessWidget {
         title: Column(
           children: [
             Text(
-              '${this.server.name}',
+              '${server.name}',
               style: kTextStyleServerTileName,
             ),
             Text(
-              '\$$allocationConverted',
+              '\$${server.allocation}',
               style: kTextStyleServerTileNumbers,
             ),
           ],

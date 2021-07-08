@@ -5,6 +5,9 @@ import './results_tile.dart';
 import '../models/server_data.dart';
 
 class ResultsList extends StatelessWidget {
+  ResultsList({required this.rate});
+  final double rate;
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ServerData>(
@@ -12,7 +15,7 @@ class ResultsList extends StatelessWidget {
         return ListView.builder(
           itemBuilder: (context, int index) {
             final server = serverData.servers[index];
-
+            server.setAllocation(rate * server.tips);
             return ResultsTile(
               server: server,
             );

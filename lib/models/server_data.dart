@@ -11,7 +11,7 @@ class ServerData extends ChangeNotifier {
     return UnmodifiableListView(_servers);
   }
 
-  void addServer(String newName, String newPoints, String newTips) {
+  void addServer(String newName, double newPoints, double newTips) {
     _servers.add(Server(name: newName, points: newPoints, tips: newTips));
     notifyListeners();
   }

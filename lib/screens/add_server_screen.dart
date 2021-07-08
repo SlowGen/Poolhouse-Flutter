@@ -16,17 +16,16 @@ class _AddServerScreenState extends State<AddServerScreen> {
 
   @override
   Widget build(BuildContext context) {
-    String? name = "Server";
-    String? points = "1.0";
-    String? tips = "0.0";
+    String name = "Server";
+    String points = '1.0';
+    String tips = "0.0";
 
     void _submit() {
-      print(name);
       if (_formKey.currentState!.validate()) _formKey.currentState!.save();
       Provider.of<ServerData>(context, listen: false).addServer(
-        name.toString(),
-        points.toString(),
-        tips.toString(),
+        name,
+        double.parse(points),
+        double.parse(tips),
       );
       Navigator.pop(context);
     }
@@ -59,7 +58,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                 height: 25.0,
               ),
               AddServerForm(
-                onSaved: (value) => name = value,
+                onSaved: (value) => name = value!,
                 hintText: 'Name',
                 icon: Icon(Icons.person),
                 validator: (String? value) =>
@@ -72,7 +71,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(100.0, 45.0)),
                       child: AddServerForm(
-                        onSaved: (value) => points = value,
+                        onSaved: (value) => points = value!,
                         hintText: 'Split',
                         icon: Icon(Icons.text_fields),
                         isNum: true,
@@ -85,7 +84,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(100.0, 45.0)),
                       child: AddServerForm(
-                        onSaved: (value) => tips = value,
+                        onSaved: (value) => tips = value!,
                         hintText: 'Tips',
                         icon: Icon(Icons.money),
                         isNum: true,

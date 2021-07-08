@@ -16,7 +16,6 @@ class ServerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String tipsConverted = int.parse(server.tips).toStringAsFixed(2);
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -33,18 +32,18 @@ class ServerTile extends StatelessWidget {
         title: Column(
           children: [
             Text(
-              '${this.server.name}',
+              '${server.name}',
               style: kTextStyleServerTileName,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  '${this.server.points}',
+                  '${server.points}',
                   style: kTextStyleServerTileNumbers,
                 ),
                 Text(
-                  '\$$tipsConverted',
+                  '\$${server.tips}',
                   style: kTextStyleServerTileNumbers,
                 ),
               ],
