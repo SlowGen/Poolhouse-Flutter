@@ -2,9 +2,11 @@ import 'dart:ui';
 import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+
+import '../constants.dart';
+
 import '../models/server_data.dart';
 import '../widgets/add_server_form.dart';
-import '../constants.dart';
 
 class AddServerScreen extends StatefulWidget {
   @override

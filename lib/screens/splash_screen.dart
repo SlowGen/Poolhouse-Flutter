@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
 import 'dart:async';
+
+import '../constants.dart';
 
 import './enter_data_screen.dart';
 

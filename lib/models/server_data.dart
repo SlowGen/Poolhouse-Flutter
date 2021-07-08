@@ -1,11 +1,14 @@
 import 'package:flutter/widgets.dart';
-import 'dart:collection';
 import 'package:flutter/foundation.dart';
+import 'dart:collection';
 
 import './server.dart';
 
 class ServerData extends ChangeNotifier {
-  List<Server> _servers = [];
+  List<Server> _servers = [
+    Server(name: 'Kali', tips: 500.00, points: 8.0),
+    Server(name: 'Ashlee', tips: 300.00, points: 4.0),
+  ];
 
   UnmodifiableListView<Server> get servers {
     return UnmodifiableListView(_servers);

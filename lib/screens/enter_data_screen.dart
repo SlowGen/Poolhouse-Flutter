@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:poolhouse/screens/results_screen.dart';
+
 import '../constants.dart';
+
 import '../screens/add_server_screen.dart';
 import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
+
+//TODO: Figure out rendering issue when server is added
 
 class DataEntry extends StatefulWidget {
   static const String id = 'data';

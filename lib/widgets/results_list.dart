@@ -15,7 +15,7 @@ class ResultsList extends StatelessWidget {
         return ListView.builder(
           itemBuilder: (context, int index) {
             final server = serverData.servers[index];
-            server.setAllocation(rate * server.tips);
+            server.setAllocation(rate * server.points);
             return ResultsTile(
               server: server,
             );

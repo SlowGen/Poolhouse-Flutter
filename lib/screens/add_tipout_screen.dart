@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/tipout_data.dart';
+
 import '../constants.dart';
+
+import '../models/tipout_data.dart';
 
 class AddTipoutScreen extends StatefulWidget {
   @override

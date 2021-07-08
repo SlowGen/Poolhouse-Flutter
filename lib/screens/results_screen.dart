@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:poolhouse/screens/enter_data_screen.dart';
-import '../constants.dart';
-import '../screens/enter_data_screen.dart';
 import 'package:provider/provider.dart';
-import '../models/tipout_data.dart';
-import '../widgets/results_list.dart';
-import '../brain.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:collection';
+
+import '../constants.dart';
+import '../brain.dart';
+
 import '../models/server.dart';
 import '../models/server_data.dart';
+import '../models/tipout_data.dart';
+import '../screens/enter_data_screen.dart';
+import '../widgets/results_list.dart';
 
 class ResultsScreen extends StatelessWidget {
   static const String id = 'results';
@@ -20,7 +22,8 @@ class ResultsScreen extends StatelessWidget {
     final UnmodifiableListView<Server> serverList =
         Provider.of<ServerData>(context, listen: false).servers;
     final Brain brain = Brain(serverList: serverList, tipout: tipouts);
-    final double rate = brain.setRate();
+    final double rate = brain.getRate();
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
