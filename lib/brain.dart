@@ -8,10 +8,10 @@ class Brain {
   final UnmodifiableListView<Server> serverList;
   final TipoutData tipout;
   double _rate = 0.0;
+  double totalTips = 0.0;
+  double totalPoints = 0.0;
 
   double getRate() {
-    double totalTips = 0.0;
-    double totalPoints = 0.0;
     for (Server server in serverList) {
       totalTips += server.tips;
       totalPoints += server.points;
@@ -21,5 +21,9 @@ class Brain {
     totalTips -= (tipout.tipout * totalTips) / 100;
     totalPoints != 0 ? _rate = totalTips / totalPoints : _rate = 0.0;
     return _rate;
+  }
+
+  double getTipoutTotal() {
+    return (tipout.tipout * totalTips) / 100;
   }
 }

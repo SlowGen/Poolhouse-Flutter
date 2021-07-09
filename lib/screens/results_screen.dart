@@ -12,6 +12,7 @@ import '../models/server_data.dart';
 import '../models/tipout_data.dart';
 import '../screens/enter_data_screen.dart';
 import '../widgets/results_list.dart';
+import '../widgets/results_tile.dart';
 
 class ResultsScreen extends StatelessWidget {
   static const String id = 'results';
@@ -23,6 +24,7 @@ class ResultsScreen extends StatelessWidget {
         Provider.of<ServerData>(context, listen: false).servers;
     final Brain brain = Brain(serverList: serverList, tipout: tipouts);
     final double rate = brain.getRate();
+    final double tipoutTotal = brain.getTipoutTotal();
 
     return Scaffold(
       appBar: AppBar(
@@ -38,7 +40,19 @@ class ResultsScreen extends StatelessWidget {
               context, DataEntry.id, (route) => false);
         },
       ),
-      body: ResultsList(rate: rate),
+      body: Column(
+        children: [
+          ResultsTile(
+            server: Server(
+              name: 'Tipout',
+              allocation: tipoutTotal,
+            ),
+          ),
+          Expanded(
+            child: ResultsList(rate: rate),
+          ),
+        ],
+      ),
     );
   }
 }
