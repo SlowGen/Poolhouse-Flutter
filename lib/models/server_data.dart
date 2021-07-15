@@ -5,10 +5,7 @@ import 'dart:collection';
 import './server.dart';
 
 class ServerData extends ChangeNotifier {
-  List<Server> _servers = [
-    Server(name: 'Kali', tips: 500.00, points: 8.0),
-    Server(name: 'Ashlee', tips: 300.00, points: 4.0),
-  ];
+  List<Server> _servers = [];
 
   UnmodifiableListView<Server> get servers {
     return UnmodifiableListView(_servers);
