@@ -36,10 +36,10 @@ class ResultsScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Text('RESET'),
         onPressed: () {
+          Provider.of<ServerData>(context, listen: false).reset();
           Navigator.pushNamedAndRemoveUntil(
               context, DataEntry.id, (route) => false);
         },
-        //TODO: Reset must clear all state
       ),
       body: Column(
         children: [

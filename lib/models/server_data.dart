@@ -33,4 +33,9 @@ class ServerData extends ChangeNotifier {
     _servers.remove(server);
     notifyListeners();
   }
+
+  void reset() {
+    _servers = [];
+    notifyListeners();
+  }
 }
