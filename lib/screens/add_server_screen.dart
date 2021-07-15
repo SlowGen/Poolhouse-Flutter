@@ -67,10 +67,13 @@ class _AddServerScreenState extends State<AddServerScreen> {
                         hintText: 'Split',
                         icon: Icon(Icons.text_fields),
                         isNum: true,
-                        validator: (String? value) =>
-                            value == null ? "If no points, enter 0" : null,
+                        validator: (String? value) => value == null
+                            ? "If no points, enter 0"
+                            : double.tryParse(value) == null
+                                ? "Invalid number"
+                                : null,
                       ),
-                    ), //TODO: expand the validators to include doubles
+                    ),
                   ),
                   Expanded(
                     child: ConstrainedBox(
@@ -80,8 +83,11 @@ class _AddServerScreenState extends State<AddServerScreen> {
                         hintText: 'Tips',
                         icon: Icon(Icons.money),
                         isNum: true,
-                        validator: (String? value) =>
-                            value == null ? "If no tips, enter 0" : null,
+                        validator: (String? value) => value == null
+                            ? "If no tips, enter 0"
+                            : double.tryParse(value) == null
+                                ? "Invalid number"
+                                : null,
                       ),
                     ),
                   ),
