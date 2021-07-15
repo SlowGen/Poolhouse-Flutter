@@ -43,7 +43,7 @@ class ServerTile extends StatelessWidget {
                   style: kTextStyleServerTileNumbers,
                 ),
                 Text(
-                  '\$${server.tips}',
+                  '\$${server.tips.toStringAsFixed(2)}',
                   style: kTextStyleServerTileNumbers,
                 ),
               ],

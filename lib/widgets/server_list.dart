@@ -5,6 +5,9 @@ import './server_tile.dart';
 import '../models/server_data.dart';
 
 class ServerList extends StatelessWidget {
+  ServerList({required this.key});
+  final Key key;
+
   @override
   Widget build(BuildContext context) {
     return Consumer<ServerData>(

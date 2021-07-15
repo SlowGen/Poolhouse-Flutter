@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:poolhouse/screens/results_screen.dart';
+import 'package:provider/provider.dart';
 
 import '../constants.dart';
 
@@ -7,8 +8,9 @@ import '../screens/add_server_screen.dart';
 import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
+import '../models/server_data.dart';
 
-//TODO: Figure out rendering issue when server is added
+//TODO: Figure out rendering issue when server state is changed.
 
 class DataEntry extends StatefulWidget {
   static const String id = 'data';
@@ -18,10 +20,16 @@ class DataEntry extends StatefulWidget {
 }
 
 class _DataEntryState extends State<DataEntry> {
-  bool showInstructions = true;
-
   @override
   Widget build(BuildContext context) {
+    // Key key = UniqueKey();
+    // Key newKey() {
+    //   setState(() {
+    //     key = Provider.of<ServerData>(context, listen: false).getKey;
+    //   });
+    //   return key;
+    // }
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -40,9 +48,6 @@ class _DataEntryState extends State<DataEntry> {
               heroTag: 'server',
               child: Icon(Icons.add),
               onPressed: () {
-                setState(() {
-                  showInstructions = false;
-                });
                 showModalBottomSheet(
                   context: context,
                   builder: (context) => AddServerScreen(),
@@ -58,9 +63,6 @@ class _DataEntryState extends State<DataEntry> {
               backgroundColor: kAccentColorOrange,
               child: Icon(Icons.remove),
               onPressed: () {
-                setState(() {
-                  showInstructions = false;
-                });
                 showModalBottomSheet(
                   context: context,
                   builder: (context) => AddTipoutScreen(),
@@ -97,16 +99,16 @@ class _DataEntryState extends State<DataEntry> {
           Center(
             child: TextButton(
               onPressed: () {
-                setState(() {
-                  showInstructions = !showInstructions;
-                });
-                print(showInstructions);
+                final snackBar = SnackBar(
+                  content: Instructions(),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
               style: ButtonStyle(
                 elevation: MaterialStateProperty.all(15.0),
               ),
               child: Text(
-                showInstructions ? 'Show List' : 'Show Instructions',
+                'Show Instructions',
                 style: kTextStyleWhite,
               ),
             ),
@@ -123,7 +125,13 @@ class _DataEntryState extends State<DataEntry> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: showInstructions ? Instructions() : ServerList(),
+              child: Consumer<ServerData>(
+                builder: (context, serverData, child) {
+                  return ServerList(
+                    key: serverData.key,
+                  );
+                },
+              ),
             ),
           ),
           Container(

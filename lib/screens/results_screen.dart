@@ -39,6 +39,7 @@ class ResultsScreen extends StatelessWidget {
           Navigator.pushNamedAndRemoveUntil(
               context, DataEntry.id, (route) => false);
         },
+        //TODO: Reset must clear all state
       ),
       body: Column(
         children: [
