@@ -16,6 +16,8 @@ class PrimaryScreen extends StatefulWidget {
 }
 
 class _PrimaryScreenState extends State<PrimaryScreen> {
+  bool showInstructions = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,16 +89,15 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
           Center(
             child: TextButton(
               onPressed: () {
-                final snackBar = SnackBar(
-                  content: Instructions(),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                setState(() {
+                  showInstructions = !showInstructions;
+                });
               },
               style: ButtonStyle(
                 elevation: MaterialStateProperty.all(15.0),
               ),
               child: Text(
-                'Show Instructions',
+                showInstructions ? 'Show List' : 'Show Instructions',
                 style: kTextStyleWhite,
               ),
             ),
@@ -113,7 +114,7 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: ServerList(),
+              child: showInstructions ? Instructions() : ServerList(),
             ),
           ),
           Container(
