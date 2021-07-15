@@ -22,16 +22,6 @@ class _AddServerScreenState extends State<AddServerScreen> {
     String points = '1.0';
     String tips = "0.0";
 
-    void _submit() {
-      if (_formKey.currentState!.validate()) _formKey.currentState!.save();
-      Provider.of<ServerData>(context, listen: false).addServer(
-        name,
-        double.parse(points),
-        double.parse(tips),
-      );
-      Navigator.pop(context);
-    }
-
     return Container(
       decoration: BoxDecoration(
         color: kAccentColorPurple,
@@ -80,7 +70,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                         validator: (String? value) =>
                             value == null ? "If no points, enter 0" : null,
                       ),
-                    ),
+                    ), //TODO: expand the validators to include doubles
                   ),
                   Expanded(
                     child: ConstrainedBox(
@@ -99,7 +89,16 @@ class _AddServerScreenState extends State<AddServerScreen> {
               ),
               Center(
                 child: TextButton(
-                  onPressed: _submit,
+                  onPressed: () {
+                    if (_formKey.currentState!.validate())
+                      _formKey.currentState!.save();
+                    Provider.of<ServerData>(context, listen: false).addServer(
+                      name,
+                      double.parse(points),
+                      double.parse(tips),
+                    );
+                    Navigator.pop(context);
+                  },
                   style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(kAccentColorOrange),

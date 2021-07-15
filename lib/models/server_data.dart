@@ -10,8 +10,6 @@ class ServerData extends ChangeNotifier {
     Server(name: 'Ashlee', tips: 300.00, points: 4.0),
   ];
 
-  Key key = UniqueKey();
-
   UnmodifiableListView<Server> get servers {
     return UnmodifiableListView(_servers);
   }
@@ -24,7 +22,6 @@ class ServerData extends ChangeNotifier {
     _servers.add(
       Server(name: newName, points: newPoints, tips: newTips),
     );
-    key = UniqueKey();
     notifyListeners();
   }
 
@@ -35,9 +32,5 @@ class ServerData extends ChangeNotifier {
   void deleteServer(Server server) {
     _servers.remove(server);
     notifyListeners();
-  }
-
-  Key get getKey {
-    return key;
   }
 }

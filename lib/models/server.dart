@@ -1,7 +1,4 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
-
-class Server extends ChangeNotifier {
+class Server {
   String name;
   double points;
   double tips;
@@ -16,6 +13,5 @@ class Server extends ChangeNotifier {
 
   void setAllocation(amount) {
     this.allocation = amount;
-    notifyListeners();
   }
 }

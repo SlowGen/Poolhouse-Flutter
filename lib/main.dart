@@ -19,10 +19,10 @@ class PoolHouseNoAds extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider(
+        ChangeNotifierProvider(
           create: (_) => ServerData(),
         ),
-        Provider(
+        ChangeNotifierProvider(
           create: (__) => TipoutData(),
         ),
       ],

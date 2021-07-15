@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:poolhouse/screens/results_screen.dart';
-import 'package:provider/provider.dart';
 
 import '../constants.dart';
 
@@ -8,9 +7,6 @@ import '../screens/add_server_screen.dart';
 import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
-import '../models/server_data.dart';
-
-//TODO: Figure out rendering issue when server state is changed.
 
 class DataEntry extends StatefulWidget {
   static const String id = 'data';
@@ -22,14 +18,6 @@ class DataEntry extends StatefulWidget {
 class _DataEntryState extends State<DataEntry> {
   @override
   Widget build(BuildContext context) {
-    // Key key = UniqueKey();
-    // Key newKey() {
-    //   setState(() {
-    //     key = Provider.of<ServerData>(context, listen: false).getKey;
-    //   });
-    //   return key;
-    // }
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -125,23 +113,18 @@ class _DataEntryState extends State<DataEntry> {
                   topRight: Radius.circular(20.0),
                 ),
               ),
-              child: Consumer<ServerData>(
-                builder: (context, serverData, child) {
-                  return ServerList(
-                    key: serverData.key,
-                  );
-                },
-              ),
+              child: ServerList(),
             ),
           ),
           Container(
             color: kAccentColorPurple,
             child: TextButton(
-                onPressed: () => Navigator.pushNamed(context, ResultsScreen.id),
-                child: Text(
-                  'Calculate',
-                  style: kTextStyleAppBar,
-                )),
+              onPressed: () => Navigator.pushNamed(context, ResultsScreen.id),
+              child: Text(
+                'Calculate',
+                style: kTextStyleAppBar,
+              ),
+            ),
           )
         ],
       ),
