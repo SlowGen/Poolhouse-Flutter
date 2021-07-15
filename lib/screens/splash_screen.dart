@@ -3,7 +3,7 @@ import 'dart:async';
 
 import '../constants.dart';
 
-import './enter_data_screen.dart';
+import 'primary_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static const String id = 'splash';
@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
       () => Navigator.push(
         context,
         PageRouteBuilder(
-          pageBuilder: (_, __, ___) => DataEntry(),
+          pageBuilder: (_, __, ___) => PrimaryScreen(),
           transitionDuration: Duration(seconds: 5),
         ),
       ),

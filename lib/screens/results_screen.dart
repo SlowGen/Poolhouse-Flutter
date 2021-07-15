@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:poolhouse/screens/enter_data_screen.dart';
+import 'package:poolhouse/screens/primary_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:collection';
@@ -10,7 +10,7 @@ import '../brain.dart';
 import '../models/server.dart';
 import '../models/server_data.dart';
 import '../models/tipout_data.dart';
-import '../screens/enter_data_screen.dart';
+import 'primary_screen.dart';
 import '../widgets/results_list.dart';
 import '../widgets/results_tile.dart';
 
@@ -38,7 +38,7 @@ class ResultsScreen extends StatelessWidget {
         onPressed: () {
           Provider.of<ServerData>(context, listen: false).reset();
           Navigator.pushNamedAndRemoveUntil(
-              context, DataEntry.id, (route) => false);
+              context, PrimaryScreen.id, (route) => false);
         },
       ),
       body: Column(

@@ -8,14 +8,14 @@ import '../screens/add_tipout_screen.dart';
 import '../screens/instructions_screen.dart';
 import '../widgets/server_list.dart';
 
-class DataEntry extends StatefulWidget {
-  static const String id = 'data';
+class PrimaryScreen extends StatefulWidget {
+  static const String id = 'primary';
 
   @override
-  _DataEntryState createState() => _DataEntryState();
+  _PrimaryScreenState createState() => _PrimaryScreenState();
 }
 
-class _DataEntryState extends State<DataEntry> {
+class _PrimaryScreenState extends State<PrimaryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
