@@ -9,28 +9,40 @@ class Instructions extends StatelessWidget {
       child: Column(
         children: [
           InstructionTile(
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
             iconColor: kAccentColorGreen,
             headlineText: 'Add Server',
             bodyText:
                 'Add servers here. Tips will be split based on number of hours worked. Enter zero for contributers that don\'t get a cut (like a manager)',
           ),
           InstructionTile(
-            icon: Icon(Icons.remove),
+            icon: Icon(
+              Icons.remove,
+              color: Colors.white,
+            ),
             iconColor: kAccentColorOrange,
             headlineText: 'Add Tipout',
             bodyText:
                 'Use slider to select tipout percentage. Be sure to use TOTAL percentage of all tipouts.',
           ),
           InstructionTile(
-            icon: Icon(Icons.calculate_outlined),
+            icon: Icon(
+              Icons.calculate_outlined,
+              color: Colors.white,
+            ),
             iconColor: kPrimaryColorPeach,
             headlineText: 'Calculate',
             bodyText:
                 'Click to see allocation. Reset to start over and back to edit.',
           ),
           InstructionTile(
-            icon: Icon(Icons.email_outlined),
+            icon: Icon(
+              Icons.email_outlined,
+              color: Colors.white,
+            ),
             iconColor: kPrimaryColorPeach,
             headlineText: 'Email',
             bodyText:
