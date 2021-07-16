@@ -38,6 +38,9 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
               heroTag: 'server',
               child: Icon(Icons.add),
               onPressed: () {
+                setState(() {
+                  showInstructions = false;
+                });
                 showModalBottomSheet(
                   context: context,
                   builder: (context) => AddServerScreen(),
@@ -53,6 +56,9 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
               backgroundColor: kAccentColorOrange,
               child: Icon(Icons.remove),
               onPressed: () {
+                setState(() {
+                  showInstructions = false;
+                });
                 showModalBottomSheet(
                   context: context,
                   builder: (context) => AddTipoutScreen(),
