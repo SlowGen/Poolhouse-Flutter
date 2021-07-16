@@ -43,3 +43,15 @@ const TextStyle kTextStyleServerTileDelete = TextStyle(
   fontFamily: 'SpaceMono',
   fontSize: 15.0,
 );
+
+const TextStyle kTextStyleInstructionsHeadline = TextStyle(
+  color: kAccentColorPurple,
+  fontFamily: 'SpaceMono',
+  fontSize: 20.0,
+);
+
+const TextStyle kTextStyleInstructionsBody = TextStyle(
+  color: kAccentColorGreen,
+  fontFamily: 'SpaceMono',
+  fontSize: 15.0,
+);
