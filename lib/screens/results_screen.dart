@@ -37,6 +37,7 @@ class ResultsScreen extends StatelessWidget {
         child: Text('RESET'),
         onPressed: () {
           Provider.of<ServerData>(context, listen: false).reset();
+          Provider.of<TipoutData>(context, listen: false).reset();
           Navigator.pushNamedAndRemoveUntil(
               context, PrimaryScreen.id, (route) => false);
         },

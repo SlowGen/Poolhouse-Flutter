@@ -25,7 +25,8 @@ class _AddTipoutScreenState extends State<AddTipoutScreen> {
             Slider(
               value: tipoutValue,
               min: 0.0,
-              max: 100.0,
+              max: 50.0,
+              divisions: 50,
               onChanged: (double tipout) {
                 setState(() {
                   tipoutValue = tipout;

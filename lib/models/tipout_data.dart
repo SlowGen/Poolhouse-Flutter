@@ -5,8 +5,9 @@ class TipoutData extends ChangeNotifier {
   int tipout = 0;
   double allocation = 0.0;
 
-  void resetTipout() {
+  void reset() {
     tipout = 0;
+    allocation = 0.0;
     notifyListeners();
   }
 
@@ -22,5 +23,3 @@ class TipoutData extends ChangeNotifier {
     notifyListeners();
   }
 }
-
-//TODO is change notifier needed?
