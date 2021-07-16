@@ -13,7 +13,7 @@ class InstructionTile extends StatelessWidget {
   final Icon icon;
   final Color iconColor;
   final String headlineText;
-  String bodyText;
+  final String bodyText;
 
   @override
   Widget build(BuildContext context) {
