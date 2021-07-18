@@ -19,7 +19,7 @@ class AddServerForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style: kTextStyleServerTileName,
+      style: kTextStyleServerEntry,
       autofocus: isNum ? false : true,
       textAlign: TextAlign.center,
       onSaved: onSaved,
@@ -28,9 +28,9 @@ class AddServerForm extends StatelessWidget {
       decoration: InputDecoration(
         isDense: true,
         focusColor: Colors.lightGreenAccent,
-        icon: icon,
+        prefixIcon: icon,
         hintText: hintText,
-        hintStyle: kTextStyleServerTileName,
+        hintStyle: kTextStyleServerEntry,
       ),
     );
   }

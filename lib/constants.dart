@@ -32,6 +32,12 @@ const TextStyle kTextStyleServerTileName = TextStyle(
   fontSize: 25.0,
 );
 
+const TextStyle kTextStyleServerEntry = TextStyle(
+  color: kAccentColorGreen,
+  fontFamily: 'SpaceMono',
+  fontSize: 20.0,
+);
+
 const TextStyle kTextStyleServerTileNumbers = TextStyle(
   color: kAccentColorOrange,
   fontFamily: 'SpaceMono',

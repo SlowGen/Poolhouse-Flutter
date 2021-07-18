@@ -49,13 +49,6 @@ class _AddServerScreenState extends State<AddServerScreen> {
               SizedBox(
                 height: 25.0,
               ),
-              AddServerForm(
-                onSaved: (value) => name = value!,
-                hintText: 'Name',
-                icon: Icon(Icons.person),
-                validator: (String? value) =>
-                    value == null ? "Name cannot be empty" : null,
-              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -63,12 +56,30 @@ class _AddServerScreenState extends State<AddServerScreen> {
                     child: ConstrainedBox(
                       constraints: BoxConstraints.tight(Size(100.0, 45.0)),
                       child: AddServerForm(
+                        onSaved: (value) => name = value!,
+                        hintText: 'Name',
+                        icon: Icon(
+                          Icons.person,
+                          size: 25.0,
+                        ),
+                        validator: (String? value) =>
+                            value == null ? "Name cannot be empty" : null,
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints.tight(Size(100.0, 45.0)),
+                      child: AddServerForm(
                         onSaved: (value) => points = value!,
-                        hintText: 'Split',
-                        icon: Icon(Icons.text_fields),
+                        hintText: 'Hours',
+                        icon: Icon(
+                          Icons.schedule_outlined,
+                          size: 25.0,
+                        ),
                         isNum: true,
                         validator: (String? value) => value == null
-                            ? "If no points, enter 0"
+                            ? "If no hours, enter 0"
                             : double.tryParse(value) == null
                                 ? "Invalid number"
                                 : null,
@@ -81,7 +92,10 @@ class _AddServerScreenState extends State<AddServerScreen> {
                       child: AddServerForm(
                         onSaved: (value) => tips = value!,
                         hintText: 'Tips',
-                        icon: Icon(Icons.money),
+                        icon: Icon(
+                          Icons.attach_money_outlined,
+                          size: 25.0,
+                        ),
                         isNum: true,
                         validator: (String? value) => value == null
                             ? "If no tips, enter 0"
@@ -93,6 +107,7 @@ class _AddServerScreenState extends State<AddServerScreen> {
                   ),
                 ],
               ),
+              SizedBox(height: 25.0),
               Center(
                 child: TextButton(
                   onPressed: () {
