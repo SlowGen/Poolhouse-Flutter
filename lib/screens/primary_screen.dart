@@ -36,7 +36,10 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
             bottom: 20,
             child: FloatingActionButton(
               heroTag: 'server',
-              child: Icon(Icons.add),
+              child: Icon(
+                Icons.add,
+                size: 55.0,
+              ),
               onPressed: () {
                 setState(() {
                   showInstructions = false;
@@ -54,7 +57,10 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
             child: FloatingActionButton(
               heroTag: 'tipout',
               backgroundColor: kAccentColorOrange,
-              child: Icon(Icons.remove),
+              child: Icon(
+                Icons.remove,
+                size: 55.0,
+              ),
               onPressed: () {
                 setState(() {
                   showInstructions = false;
