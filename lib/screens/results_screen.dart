@@ -33,14 +33,37 @@ class ResultsScreen extends StatelessWidget {
           style: kTextStyleAppBar,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Text('RESET'),
-        onPressed: () {
-          Provider.of<ServerData>(context, listen: false).reset();
-          Provider.of<TipoutData>(context, listen: false).reset();
-          Navigator.pushNamedAndRemoveUntil(
-              context, PrimaryScreen.id, (route) => false);
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: Stack(
+        fit: StackFit.expand,
+        children: [
+          Positioned(
+            right: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              heroTag: 'reset',
+              child: Text('RESET'),
+              onPressed: () {
+                Provider.of<ServerData>(context, listen: false).reset();
+                Provider.of<TipoutData>(context, listen: false).reset();
+                Navigator.pushNamedAndRemoveUntil(
+                    context, PrimaryScreen.id, (route) => false);
+              },
+            ),
+          ),
+          Positioned(
+            left: 30,
+            bottom: 20,
+            child: FloatingActionButton(
+              heroTag: 'back',
+              backgroundColor: kAccentColorOrange,
+              child: Text('BACK'),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
