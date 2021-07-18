@@ -1,4 +1,3 @@
-//TODO: Figure out styling for tip entry
 //TODO: Adjust splash screen animation time
 //TODO: Read through pre-release notes for both platforms
 
