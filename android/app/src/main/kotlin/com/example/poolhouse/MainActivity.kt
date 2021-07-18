@@ -1,4 +1,4 @@
-package com.example.poolhouse
+package nyc.slowgen.poolhouse
 
 import io.flutter.embedding.android.FlutterActivity
 

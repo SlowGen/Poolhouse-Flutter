@@ -1,4 +1,3 @@
-//TODO: Adjust splash screen animation time
 //TODO: Read through pre-release notes for both platforms
 
 //TODO: Research ad incorporation / payment details

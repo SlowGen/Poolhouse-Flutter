@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.poolhouse">
+    package="nyc.slowgen.poolhouse">
    <application
         android:label="poolhouse"
         android:icon="@mipmap/ic_launcher">
