@@ -3,7 +3,9 @@
 
 A light-weight tool for servers and bartenders to split their tips.
 
-🚀 Closed testing now available on Google Play, email kali@kali.nyc for access 🚀
+# 🚀 Closed testing now available on Google Play 🚀
+
+# 🔥 Email kali@kali.nyc for access 🔥
 
 ## About the app
 
