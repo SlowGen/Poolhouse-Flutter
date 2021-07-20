@@ -21,19 +21,25 @@ Even though all three are working together and sharing in the work equally, the 
 
 Dividing up the tips fairly comes down to a bunch of simple math, but who wants to do that after a long busy night? This is where Poolhouse comes in to help!
 
-![Instruction_Screen](./media/Screenshot1.png)
-Users are greeted first with a quick set of instructions, with easy access buttons at the bottom to get started.
 
-Tapping on the ➕ brings up the ADD SERVER screen where the user can type in the name, hours worked and tips earned.
+**Users are greeted first with a quick set of instructions, with easy access buttons at the bottom to get started.**
+
+![Instruction_Screen](./media/Screenshot1.png)
+
+**Tapping on the ➕ brings up the ADD SERVER screen where the user can type in the name, hours worked and tips earned.**
+
 ![Add_Server_Screen](./media/Screenshot1-5.png)
 
-All servers are responsively rendered on our primary screen, where the user can remove or continue adding
+**All servers are responsively rendered on our primary screen, where the user can remove or continue adding**
+
 ![Server_List](./media/Screenshot2.png)
 
-Now we don't want to forget our helpers! Next the user can add a tipout percentage by tapping the ➖.
+**Now we don't want to forget our helpers! Next the user can add a tipout percentage by tapping the ➖.**
+
 ![Add_Tipout_Screen](./media/Screenshot3.png)
 
-Now we are ready to tap CALCULATE and we get our results!
+**Now we are ready to tap CALCULATE and we get our results!**
+
 ![Results](./media/Screenshot4.png)
 
 If we make a mistake, we can go back and edit our list or we can tap reset and start from scratch.
