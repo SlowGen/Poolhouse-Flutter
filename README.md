@@ -1,5 +1,5 @@
-# 🍍 POOLHOUSE 🍍
 ![POOLHOUSE_BANNER](./media/poolhouseHeader.png)
+# 🍍 POOLHOUSE 🍍
 
 A light-weight tool for servers and bartenders to split their tips.
 
