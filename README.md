@@ -3,9 +3,11 @@
 
 A light-weight tool for servers and bartenders to split their tips.
 
-# 🚀 Closed testing now available on Google Play 🚀
+# 🚀 Testing now available for Android 🚀
 
-# 🔥 Email kali@kali.nyc for access 🔥
+# [See on Google Play](https://play.google.com/store/apps/details?id=nyc.slowgen.poolhouse)
+
+# 🔥 Email kali@kali.nyc for promo codes 🔥
 
 ## About the app
 
