@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="nyc.slowgen.poolhouse">
+    package="nyc.slowgen.poolhouse.free">
    <application
         android:label="Poolhouse"
         android:icon="@mipmap/ic_launcher">
@@ -37,5 +37,9 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <!--Meta data for admob-->
+            <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-5465728188883942~4372719346"/>
     </application>
 </manifest>

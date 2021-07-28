@@ -1,5 +1,5 @@
 name: poolhouse
-description: A light-weight tool for servers and bartenders splitting tips.
+description: A light-weight tool for servers and bartenders splitting tips. Free, ad-supported version.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   provider: ^5.0.0
   flutter_launcher_icons: "^0.8.0"
+  google_mobile_ads: ^0.13.2
 
 dev_dependencies:
   flutter_test:

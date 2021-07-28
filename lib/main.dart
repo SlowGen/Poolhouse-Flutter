@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import './constants.dart';
+
+import './models/ad_state.dart';
 
 import './screens/splash_screen.dart';
 import 'screens/primary_screen.dart';
@@ -10,11 +13,19 @@ import './models/server_data.dart';
 import './models/tipout_data.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  final initFuture = MobileAds.instance.initialize();
+  final adState = AdState(initFuture);
   Provider.debugCheckInvalidValueType = null;
-  runApp(PoolHouseNoAds());
+  runApp(
+    Provider.value(
+      value: adState,
+      builder: (context, child) => PoolHouseWithAds(),
+    ),
+  );
 }
 
-class PoolHouseNoAds extends StatelessWidget {
+class PoolHouseWithAds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
