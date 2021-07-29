@@ -22,6 +22,7 @@ class _PrimaryScreenState extends State<PrimaryScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Container(),
         title: Text(
           'POOLHOUSE',
           style: kTextStyleAppBar,
