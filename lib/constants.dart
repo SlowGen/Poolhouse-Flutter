@@ -5,6 +5,7 @@ const kAccentColorOrange = Color(0xFFff914d);
 const kAccentColorGreen = Color(0xFF5f9555);
 const kAccentColorPurple = Color(0xFF5271ff);
 const kAccentColorBlue = Color(0xFF004aad);
+const kAccentColorGreenTransparent = Color(0x555f9555);
 
 const TextStyle kTextStyleAppBar = TextStyle(
   color: Colors.white,
