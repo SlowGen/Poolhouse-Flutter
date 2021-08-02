@@ -40,6 +40,6 @@
             <!--Meta data for admob-->
             <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5465728188883942~4372719346"/>
+            android:value="${admobID}"/>
     </application>
 </manifest>
