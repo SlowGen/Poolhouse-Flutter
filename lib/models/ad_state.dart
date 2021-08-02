@@ -1,4 +1,5 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'dart:io';
 
 class AdState {
@@ -6,9 +7,11 @@ class AdState {
 
   Future<InitializationStatus> initialization;
 
-  String get bannerAdUnitId => Platform.isAndroid
-      ? "ca-app-pub-3940256099942544/6300978111"
-      : "ca-app-pub-3940256099942544/2934735716";
+  String get instructionsAdUnitId =>
+      Platform.isAndroid ? dotenv.env['INSTRUCTIONSAD1'].toString() : '';
+
+  String get resultsAdUnitId =>
+      Platform.isAndroid ? dotenv.env['RESULTSAD2'].toString() : '';
 
   BannerAdListener get adListener => _adListener;
 

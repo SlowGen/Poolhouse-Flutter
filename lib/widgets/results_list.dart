@@ -18,13 +18,14 @@ class _ResultsListState extends State<ResultsList> {
   late BannerAd banner;
 
   @override
-  void didChangeDependencies() {
+  Future didChangeDependencies() async {
     super.didChangeDependencies();
     final adState = Provider.of<AdState>(context);
     adState.initialization.then((status) {
       setState(() {
+        print(adState.resultsAdUnitId);
         banner = BannerAd(
-          adUnitId: adState.bannerAdUnitId,
+          adUnitId: adState.resultsAdUnitId,
           size: AdSize.banner,
           request: AdRequest(),
           listener: adState.adListener,
@@ -40,7 +41,7 @@ class _ResultsListState extends State<ResultsList> {
         return Column(
           children: [
             Container(
-              height: 50.0,
+              height: 75.0,
               child: AdWidget(
                 ad: banner,
               ),

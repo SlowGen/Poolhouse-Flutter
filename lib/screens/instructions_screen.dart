@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:async';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import '../models/ad_state.dart';
 
 import 'package:poolhouse/constants.dart';
 import '../widgets/instruction_tile.dart';
@@ -14,6 +17,23 @@ class Instructions extends StatefulWidget {
 
 class _InstructionsState extends State<Instructions> {
   String whichToolTip = 'none';
+  late BannerAd banner;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final adState = Provider.of<AdState>(context);
+    adState.initialization.then((status) {
+      setState(() {
+        banner = BannerAd(
+          adUnitId: adState.instructionsAdUnitId,
+          size: AdSize.banner,
+          request: AdRequest(),
+          listener: adState.adListener,
+        )..load();
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,15 +110,11 @@ class _InstructionsState extends State<Instructions> {
                     'Click to see allocation. Reset to start over and back to edit.',
               ),
             ),
-            InstructionTile(
-              icon: Icon(
-                Icons.email_outlined,
-                color: Colors.white,
+            Container(
+              height: 75.0,
+              child: AdWidget(
+                ad: banner,
               ),
-              iconColor: kPrimaryColorPeach,
-              headlineText: 'Email',
-              bodyText:
-                  'For additional help or feedback, reach out to me at info@slowgen.dev',
             ),
           ],
         ),

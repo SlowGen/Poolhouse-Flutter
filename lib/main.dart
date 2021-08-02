@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -12,7 +13,8 @@ import './screens/results_screen.dart';
 import './models/server_data.dart';
 import './models/tipout_data.dart';
 
-void main() {
+Future main() async {
+  await dotenv.load();
   WidgetsFlutterBinding.ensureInitialized();
   final initFuture = MobileAds.instance.initialize();
   final adState = AdState(initFuture);
